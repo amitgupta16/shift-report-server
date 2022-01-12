@@ -52,8 +52,8 @@ app.get("/getReport/:id/:line", (req, res) => {
   }).catch((err) => res.status(400).json("x"));
 });
 
-app.listen(3000, () => {
-  console.log("App is now running on Port 3000");
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`App is now running on Port ${process.env.PORT}`);
 });
 
 // EXAMPLE OF USING KNEX WITHOUT TRANSACTION
