@@ -43,7 +43,7 @@ app.get("/getReport/:id/:line", (req, res) => {
   const { id, line } = req.params;
   db.transaction((trx) => {
     trx
-      .select(report)
+      .select()
       .table(`${line}`)
       .where("id", id)
       .then((report) => res.send(report[0].data))
