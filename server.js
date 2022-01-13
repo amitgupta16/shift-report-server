@@ -32,7 +32,7 @@ app.post("/addReport", (req, res) => {
       .into(`${line}`)
       .returning("*")
       .then((report) => {
-        res(report[0]);
+        res.json(report[0]);
       })
       .then(trx.commit)
       .catch(trx.rollback);
@@ -46,7 +46,7 @@ app.get("/getReport/:id/:line", (req, res) => {
       .select()
       .table(`${line}`)
       .where("id", id)
-      .then((report) => res.send(report[0].data))
+      .then((report) => res.json(report[0].data))
       .then(trx.commit)
       .catch(trx.rollback);
   }).catch((err) => res.status(400).json("x"));
