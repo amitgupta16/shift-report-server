@@ -46,7 +46,7 @@ app.get("/getReport/:id/:line", (req, res) => {
       .select()
       .table(`${line}`)
       .where("id", id)
-      .then((report) => res.json(report[0]))
+      .then((report) => res.send(report[0].data))
       .then(trx.commit)
       .catch(trx.rollback);
   }).catch((err) => res.status(400).json("x"));
