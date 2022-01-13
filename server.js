@@ -22,7 +22,6 @@ app.get("/", (req, res) => {
 
 app.post("/addReport", (req, res) => {
   let { id, line, data } = req.body;
-  console.log(id, line, data[0], data[1]);
   db.transaction((trx) => {
     trx
       .insert({
