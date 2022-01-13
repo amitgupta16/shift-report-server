@@ -32,7 +32,7 @@ app.post("/addReport", (req, res) => {
       .into(`${line}`)
       .returning("*")
       .then((report) => {
-        res.json(report[0]);
+        res(report[0]);
       })
       .then(trx.commit)
       .catch(trx.rollback);
